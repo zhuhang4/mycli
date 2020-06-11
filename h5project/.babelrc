@@ -1,0 +1,15 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                //按需改为usage，据说有坑的，不用
+                "useBuiltIns": false,
+                "corejs": 2
+            }
+        ]
+    ],
+    "plugins": [
+        "@babel/plugin-syntax-dynamic-import"
+    ],
+}
