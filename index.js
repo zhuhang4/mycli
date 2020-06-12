@@ -51,8 +51,8 @@ program
 //上传svn
 program
   .command('svn <dirname>')
-  .option('-u, --username <username>', 'svn username','./')
-  .option('-p, --password <password>', 'svn password','./')
+  .option('-u, --username <username>', 'svn username','hyr')
+  .option('-p, --password <password>', 'svn password','123456')
   .description('commit svn')
   .action((dirname,cmd) => {
     const options = cleanArgs(cmd);
