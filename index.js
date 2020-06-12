@@ -9,22 +9,9 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const ora = require('ora');
 const chalk = require('chalk');
+//默认存放h5项目的地方
+const project_path='h5project';
 
-const templates = {
-  "common": {
-    "url": "",
-    "downloadurl": "https://github.com:zhuhang4/common#master",
-    "describe": 'A模板'
-  },
-  "template-b": {
-    "url": "",
-    "describe": 'B模板'
-  },
-  "template-c": {
-    "url": "",
-    "describe": 'C模板'
-  },
-}
 
 program
   .version(require('./package').version)
@@ -41,12 +28,13 @@ program
     const options = cleanArgs(cmd);
     // console.log(projectName, templates[projectName]);
     // const { downloadurl } = templates[projectName];
-    console.log('options:', options);
+    console.log('optionsxxxxxx', options);
     // console.log('传入参数:' + minimist(process.argv.slice(3))._);
     if (minimist(process.argv.slice(3))._.length > 1) {
       console.log(chalk.yellow('\n ⚠️  检测到您输入了多个名称，将以第一个参数为项目名，舍弃后续参数哦'))
     }
-    require('./lib/create')(folderName, options);
+    console.log(project_path+"/"+folderName)
+    require('./lib/create')(project_path+"/"+folderName, options);
     return;
   });
 
@@ -71,14 +59,6 @@ program
     require('./lib/svn')(dirname,options);
   })
 
-
-program
-  .command('list')
-  .action(() => {
-    for (let i in templates) {
-      console.log(templates[i].describe + ":" + templates[i].url)
-    }
-  });
 program.parse(process.argv);
 
 function camelize(str) {

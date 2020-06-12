@@ -34,7 +34,7 @@ else
 }
   if (!fs.existsSync(path.resolve(__dirname, `./${program.dirname}`))) {
     global.projectName = projectName;
-    console.log(`项目不存在,请传npm run xx --dirname=xxx ---------------------,当前使用默认项目${projectName}`);
+    console.log(`./${program.dirname}`,`项目不存在,请传npm run xx --dirname=xxx ---------------------,当前使用默认项目${projectName}`);
   }
   else {
     projectName = global.projectName = './' + program.dirname;
