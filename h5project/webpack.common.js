@@ -97,6 +97,9 @@ const config = {
     ]),
     new webpack.NamedModulesPlugin(),
     new VueLoaderPlugin(),
+    new webpack.DefinePlugin({
+      MINI: JSON.stringify(true),
+    })
     // new webpack.HotModuleReplacementPlugin()
   ],
 
@@ -105,7 +108,7 @@ const config = {
       chunks: 'all',
       minSize: 30000,
       maxSize: 0,
-      minChunks: 1,
+      minChunks: 2,
       maxAsyncRequests: 5,
       maxInitialRequests: 3,
       automaticNameDelimiter: '~',
@@ -123,7 +126,13 @@ const config = {
 
   output: {
     filename: '[name].js?v=[hash]',
-    path: path.resolve(__dirname, projectName + '/dist')
+    path: path.resolve(__dirname, projectName + '/dist'),
+    // library: 'library',
+    /*
+     umd 通用配置，这样可以通过 es6 amd cmd 方式使用库
+     libraryTarget 属性有多中配置，具体可以看webpack官网 指南 -> 创建library
+    */
+  //  libraryTarget: 'commonjs',
   }
 };
 
