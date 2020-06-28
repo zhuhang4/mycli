@@ -23,7 +23,6 @@ module.exports = merge(common, {
   //   },
   stats: 'errors-only',
   plugins: [
-
     new UglifyJSPlugin({
       sourceMap: false,
       chunkFilter: (chunk) => {
