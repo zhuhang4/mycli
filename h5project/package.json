@@ -6,8 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --inline --open --config webpack.dev.js",
+    "start2": "webpack-dev-server --inline --open --config webpack.more.js",
     "build": "webpack --config webpack.pro.js --node-args='--stack-size=4096000'",
-    "final": "webpack --config webpack.pro.js && node ../commitsvn.js"
+    "final": "webpack --config webpack.pro.js && mycli svn",
+    "finaltest":"mycli svn"
   },
   "keywords": [],
   "author": "",
@@ -48,9 +50,12 @@
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
     "@types/three": "^0.93.26",
+    "ant-design-vue": "^1.6.3",
     "axios": "^0.19.0",
     "element-ui": "^2.12.0",
     "gemini-scrollbar": "^1.5.3",
+    "pano-controls": "^4.0.0",
+    "pixi.js-legacy": "^5.3.0",
     "qs.js": "^0.1.12",
     "vant": "^2.1.2",
     "vue": "^2.6.10",

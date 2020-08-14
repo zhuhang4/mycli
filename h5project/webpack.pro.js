@@ -23,21 +23,21 @@ module.exports = merge(common, {
   //   },
   stats: 'errors-only',
   plugins: [
-    new UglifyJSPlugin({
-      sourceMap: false,
-      chunkFilter: (chunk) => {
-        // `vendor` 模块不压缩
-        if (chunk.name === 'vendor') {
-          return false;
-        }
-        return true;
-      },
-    }),
+    // new UglifyJSPlugin({
+    //   sourceMap: false,
+    //   chunkFilter: (chunk) => {
+    //     if (chunk.name === 'vendor') {
+    //       return false;
+    //     }
+    //     return true;
+    //   },
+    // }),
     //cdn影响于template.html
     new HtmlWebpackPlugin({
       cdn: cdnurl,
       title: 'Production',
       test: '[hash]',
+      chunks:['main'],
       template: projectName + '/src/template.html'
     }),
     //webpack影响于Preload.js

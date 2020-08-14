@@ -17,6 +17,7 @@ try {
   program
     .version('0.1.0')
     .option('-d, --dirname <dirname>', '编译目录')
+    .option('-s, --svnname <svnname>', 'svn目录')//不写会报错
     .option('-p, --port <port>', '端口')
     .parse(argv);
 
@@ -39,6 +40,7 @@ else
   else {
     projectName = global.projectName = './' + program.dirname;
   }
+
 
 
 

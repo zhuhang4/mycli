@@ -27,6 +27,7 @@ module.exports = merge(common, {
       // inject: false,
       title: 'Dev',
       test:'[hash]',
+      chunks:['main'],
       template: projectName+'/src/template.html'
     })
   ]
